@@ -1053,6 +1053,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5827695259052421400}
   - component: {fileID: 5827695259061772022}
+  - component: {fileID: 5827695259061772024}
+  - component: {fileID: 5827695259061772023}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2745,6 +2747,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5827695259061772023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5827695259052387640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679de4f4f66a24ceb84fb7fc6e30a999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &5827695259061772024
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5827695259052387640}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!137 &5827695259065983026
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
