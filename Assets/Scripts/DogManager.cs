@@ -31,4 +31,9 @@ public class DogManager : MonoBehaviour
             _animator.SetFloat(MoveSpeed, 0);
         }
     }
+    
+    public void Hit()
+    {
+        Debug.Log("Hit!!");
+    }
 }
