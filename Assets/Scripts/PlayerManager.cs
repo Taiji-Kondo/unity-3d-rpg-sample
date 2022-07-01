@@ -28,6 +28,9 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     { 
+        // Move direction
+        Vector3 direction = transform.position + new Vector3(_x, 0, _z);
+        transform.LookAt(direction);
         // Move speed
         _rigidbody.velocity = new Vector3(_x, 0, _z) * moveSpeed;
         // Move animation
