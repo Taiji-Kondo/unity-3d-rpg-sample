@@ -6,13 +6,17 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     private Rigidbody _rigidbody;
+    private Animator _animator;
     private float _x;
     private float _z;
-    public float moveSpeed = 3;
+    private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
     
+    public float moveSpeed = 3;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,5 +30,7 @@ public class PlayerManager : MonoBehaviour
     { 
         // Move speed
         _rigidbody.velocity = new Vector3(_x, 0, _z) * moveSpeed;
+        // Move animation
+        _animator.SetFloat(MoveSpeed, _rigidbody.velocity.magnitude);
     }
 }
