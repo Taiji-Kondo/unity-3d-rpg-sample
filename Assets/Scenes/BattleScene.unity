@@ -425,6 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6379554178564823152}
   - component: {fileID: 6379554178564823153}
+  - component: {fileID: 6379554178564823154}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Untagged
@@ -610,6 +611,7 @@ GameObject:
   - component: {fileID: 2528799273385828598}
   - component: {fileID: 2528799273386828342}
   - component: {fileID: 2528799273386828343}
+  - component: {fileID: 2528799273386828344}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -681,6 +683,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 9ef625d01f79b4e4eb62fcdf032954ca, type: 3}
+--- !u!114 &2528799273386828344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2528799273384836342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ab3e7518bbd4f65a4b28a2c49e6e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &2592450601131068574
 GameObject:
   m_ObjectHideFlags: 0
@@ -3622,6 +3637,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.16, y: 100, z: 39.1}
   m_Center: {x: 0, y: 53.5, z: 40.1}
+--- !u!114 &6379554178564823154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19059818035134705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ab3e7518bbd4f65a4b28a2c49e6e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &6470567149304731511
 GameObject:
   m_ObjectHideFlags: 0
