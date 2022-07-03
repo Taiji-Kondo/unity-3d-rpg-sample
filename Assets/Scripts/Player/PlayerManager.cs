@@ -13,11 +13,14 @@ namespace Player
         private static readonly int Hurt = Animator.StringToHash("Hurt");
     
         public float moveSpeed;
+        public Collider weaponCollider;
 
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _animator = GetComponent<Animator>();
+            
+            DisableWeaponCollider();
         }
 
         void Update()
@@ -51,6 +54,16 @@ namespace Player
             {
                 _animator.SetTrigger(Hurt);
             }
+        }
+        
+        public void DisableWeaponCollider()
+        {
+            weaponCollider.enabled = false;
+        }
+        
+        public void EnableWeaponCollider()
+        {
+            weaponCollider.enabled = true;
         }
     }
 }

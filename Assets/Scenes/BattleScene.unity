@@ -3335,6 +3335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  weaponCollider: {fileID: 2528799273386828343}
 --- !u!54 &5827695259061772024
 Rigidbody:
   m_ObjectHideFlags: 0
