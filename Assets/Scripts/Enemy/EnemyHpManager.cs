@@ -5,17 +5,17 @@ namespace Enemy
 {
     public class EnemyHpManager : MonoBehaviour
     {
-        public Slider hpSlider;
+        public Slider hpGage;
         
         public void Init(EnemyManager enemyManager)
         {
-            hpSlider.maxValue = enemyManager.maxHp;
-            hpSlider.value = enemyManager.maxHp;
+            hpGage.maxValue = enemyManager.maxHp;
+            hpGage.value = enemyManager.maxHp;
         }
         
         public void UpdateHp(int hp)
         {
-            hpSlider.value = hp;
+            hpGage.value = hp;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Player
         private Animator _animator;
         private float _x;
         private float _z;
-        private int _maxHp = 100;
+        public int maxHp = 100;
         private int _hp;
         private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
         private static readonly int Attack = Animator.StringToHash("Attack");
@@ -20,7 +20,9 @@ namespace Player
 
         void Start()
         {
-            _hp = _maxHp;
+            // Init
+            _hp = maxHp;
+            playerHpManager.Init(this);
             
             _rigidbody = GetComponent<Rigidbody>();
             _animator = GetComponent<Animator>();
