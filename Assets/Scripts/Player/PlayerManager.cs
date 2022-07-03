@@ -42,5 +42,10 @@ namespace Player
             // Move animation
             _animator.SetFloat(MoveSpeed, _rigidbody.velocity.magnitude);
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("Trigger Enemy Attack");
+        }
     }
 }

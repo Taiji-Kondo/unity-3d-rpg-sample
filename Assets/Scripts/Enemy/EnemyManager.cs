@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,6 +25,11 @@ namespace Enemy
             _agent.destination = target.position;
             
             _animator.SetFloat(Distance, _agent.remainingDistance);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("Trigger Player Attack");
         }
     }
 }
