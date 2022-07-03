@@ -12,6 +12,7 @@ namespace Enemy
         private static readonly int Hurt = Animator.StringToHash("Hurt");
 
         public Transform target;
+        public Collider weaponCollider;
 
         void Start()
         {
@@ -19,6 +20,8 @@ namespace Enemy
             _agent.destination = target.position;
             
             _animator = GetComponent<Animator>();
+            
+            DisableWeaponCollider();
         }
 
         void Update()
@@ -35,6 +38,16 @@ namespace Enemy
             {
                 _animator.SetTrigger(Hurt);
             }
+        }
+        
+        public void DisableWeaponCollider()
+        {
+            weaponCollider.enabled = false;
+        }
+        
+        public void EnableWeaponCollider()
+        {
+            weaponCollider.enabled = true;
         }
     }
 }
