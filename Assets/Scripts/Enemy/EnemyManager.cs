@@ -29,7 +29,11 @@ namespace Enemy
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Trigger Player Attack");
+            Weapon weapon = other.GetComponent<Weapon>();
+            if (weapon != null)
+            {
+                Debug.Log("Enemy hit!");
+            }
         }
     }
 }

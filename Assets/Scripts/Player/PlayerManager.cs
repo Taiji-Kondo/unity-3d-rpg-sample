@@ -45,7 +45,11 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Trigger Enemy Attack");
+            Weapon weapon = other.GetComponent<Weapon>();
+            if (weapon != null)
+            {
+                Debug.Log("Player hit!");
+            }
         }
     }
 }
