@@ -4,9 +4,12 @@ namespace Player
 {
     public class PlayerHurtBehaviour : StateMachineBehaviour
     {
+        private static readonly int Hurt = Animator.StringToHash("Hurt");
+
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            animator.ResetTrigger(Hurt);
             // Change moveSpeed to zero
             animator.GetComponent<PlayerManager>().moveSpeed = 0.4f;
         }
@@ -20,6 +23,7 @@ namespace Player
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            animator.ResetTrigger(Hurt);
             // reset moveSpeed
             animator.GetComponent<PlayerManager>().moveSpeed = 3;
         }
