@@ -16,6 +16,7 @@ namespace Player
     
         public float moveSpeed;
         public Collider weaponCollider;
+        public PlayerHpManager playerHpManager;
 
         void Start()
         {
@@ -68,7 +69,7 @@ namespace Player
             {
                 _hp = 0;
             }
-            Debug.Log("HP: " + _hp);
+            playerHpManager.UpdateHp(_hp);
         }
         
         public void DisableWeaponCollider()
