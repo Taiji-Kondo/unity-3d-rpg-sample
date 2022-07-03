@@ -8,6 +8,8 @@ namespace Enemy
     {
         private NavMeshAgent _agent;
         private Animator _animator;
+        private int _maxHp = 100;
+        private int _hp;
         private static readonly int Distance = Animator.StringToHash("Distance");
         private static readonly int Hurt = Animator.StringToHash("Hurt");
 
@@ -16,6 +18,8 @@ namespace Enemy
 
         void Start()
         {
+            _hp = _maxHp;
+            
             _agent = GetComponent<NavMeshAgent>();
             _agent.destination = target.position;
             
@@ -37,7 +41,18 @@ namespace Enemy
             if (weapon != null)
             {
                 _animator.SetTrigger(Hurt);
+                Damage(weapon.damage);
             }
+        }
+        
+        private void Damage(int damage)
+        {
+            _hp -= damage;
+            if (_hp <= 0)
+            {
+                _hp = 0;
+            }
+            Debug.Log("HP: " + _hp);
         }
         
         public void DisableWeaponCollider()
