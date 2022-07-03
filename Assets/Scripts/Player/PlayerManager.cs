@@ -10,6 +10,7 @@ namespace Player
         private float _z;
         private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
         private static readonly int Attack = Animator.StringToHash("Attack");
+        private static readonly int Hurt = Animator.StringToHash("Hurt");
     
         public float moveSpeed;
 
@@ -48,7 +49,7 @@ namespace Player
             Weapon weapon = other.GetComponent<Weapon>();
             if (weapon != null)
             {
-                Debug.Log("Player hit!");
+                _animator.SetTrigger(Hurt);
             }
         }
     }
