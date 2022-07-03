@@ -8,6 +8,8 @@ namespace Player
         private Animator _animator;
         private float _x;
         private float _z;
+        private int _maxHp = 100;
+        private int _hp;
         private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Hurt = Animator.StringToHash("Hurt");
@@ -17,6 +19,8 @@ namespace Player
 
         void Start()
         {
+            _hp = _maxHp;
+            
             _rigidbody = GetComponent<Rigidbody>();
             _animator = GetComponent<Animator>();
             
@@ -53,7 +57,18 @@ namespace Player
             if (weapon != null)
             {
                 _animator.SetTrigger(Hurt);
+                Damage(weapon.damage);
             }
+        }
+        
+        private void Damage(int damage)
+        {
+            _hp -= damage;
+            if (_hp <= 0)
+            {
+                _hp = 0;
+            }
+            Debug.Log("HP: " + _hp);
         }
         
         public void DisableWeaponCollider()
