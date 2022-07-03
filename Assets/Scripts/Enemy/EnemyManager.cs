@@ -9,6 +9,7 @@ namespace Enemy
         private NavMeshAgent _agent;
         private Animator _animator;
         private static readonly int Distance = Animator.StringToHash("Distance");
+        private static readonly int Hurt = Animator.StringToHash("Hurt");
 
         public Transform target;
 
@@ -32,7 +33,7 @@ namespace Enemy
             Weapon weapon = other.GetComponent<Weapon>();
             if (weapon != null)
             {
-                Debug.Log("Enemy hit!");
+                _animator.SetTrigger(Hurt);
             }
         }
     }
