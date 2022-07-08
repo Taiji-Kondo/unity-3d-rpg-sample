@@ -12,6 +12,7 @@ namespace Enemy
         private int _hp;
         private static readonly int Distance = Animator.StringToHash("Distance");
         private static readonly int Hurt = Animator.StringToHash("Hurt");
+        private static readonly int Die = Animator.StringToHash("Die");
 
         public Transform target;
         public Collider weaponCollider;
@@ -54,6 +55,8 @@ namespace Enemy
             if (_hp <= 0)
             {
                 _hp = 0;
+                
+                _animator.SetTrigger(Die);
             }
             enemyHpManager.UpdateHp(_hp);
         }
