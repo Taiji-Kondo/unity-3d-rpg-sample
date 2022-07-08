@@ -10,9 +10,11 @@ namespace Player
         private float _z;
         public int maxHp = 100;
         private int _hp;
+        private bool _isDie;
         private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Hurt = Animator.StringToHash("Hurt");
+        private static readonly int Die = Animator.StringToHash("Die");
     
         public float moveSpeed;
         public Collider weaponCollider;
@@ -32,6 +34,11 @@ namespace Player
 
         void Update()
         {
+            if (_isDie)
+            {
+                return;
+            }
+            
             // Move by keydown
             _x = Input.GetAxis("Horizontal");
             _z = Input.GetAxis("Vertical");
@@ -45,6 +52,11 @@ namespace Player
 
         private void FixedUpdate()
         { 
+            if (_isDie)
+            {
+                return;
+            }
+            
             // Move direction
             Vector3 direction = transform.position + new Vector3(_x, 0, _z) * moveSpeed;
             transform.LookAt(direction);
@@ -56,6 +68,11 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
+            if (_isDie)
+            {
+                return;
+            }
+            
             Weapon weapon = other.GetComponent<Weapon>();
             if (weapon != null)
             {
@@ -70,6 +87,9 @@ namespace Player
             if (_hp <= 0)
             {
                 _hp = 0;
+                _isDie = true;
+
+                _animator.SetTrigger(Die);
             }
             playerHpManager.UpdateHp(_hp);
         }
