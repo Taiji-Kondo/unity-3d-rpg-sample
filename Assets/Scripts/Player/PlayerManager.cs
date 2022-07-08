@@ -19,6 +19,7 @@ namespace Player
         public float moveSpeed;
         public Collider weaponCollider;
         public PlayerHpManager playerHpManager;
+        public GameObject gameOverText;
 
         void Start()
         {
@@ -90,6 +91,7 @@ namespace Player
                 _isDie = true;
 
                 _animator.SetTrigger(Die);
+                gameOverText.SetActive(true);
             }
             playerHpManager.UpdateHp(_hp);
         }

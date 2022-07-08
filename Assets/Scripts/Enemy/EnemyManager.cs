@@ -17,6 +17,7 @@ namespace Enemy
         public Transform target;
         public Collider weaponCollider;
         public EnemyHpManager enemyHpManager;
+        public GameObject gameClearText;
 
         void Start()
         {
@@ -57,6 +58,7 @@ namespace Enemy
                 _hp = 0;
                 
                 _animator.SetTrigger(Die);
+                gameClearText.SetActive(true);
             }
             enemyHpManager.UpdateHp(_hp);
         }
