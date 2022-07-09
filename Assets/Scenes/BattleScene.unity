@@ -4470,6 +4470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  target: {fileID: 5547793298124645645}
   moveSpeed: 3
   weaponCollider: {fileID: 2528799273386828343}
   playerHpManager: {fileID: 1133337162}

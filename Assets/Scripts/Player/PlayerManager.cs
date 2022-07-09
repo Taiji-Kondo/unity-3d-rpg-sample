@@ -15,7 +15,8 @@ namespace Player
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Hurt = Animator.StringToHash("Hurt");
         private static readonly int Die = Animator.StringToHash("Die");
-    
+
+        public Transform target;
         public float moveSpeed;
         public Collider weaponCollider;
         public PlayerHpManager playerHpManager;
@@ -47,6 +48,7 @@ namespace Player
             // Attack by keydown
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                LookAtTarget();
                 _animator.SetTrigger(Attack);
             }
         }
@@ -79,6 +81,15 @@ namespace Player
             {
                 _animator.SetTrigger(Hurt);
                 Damage(weapon.damage);
+            }
+        }
+        
+        private void LookAtTarget()
+        {
+            float distance = Vector3.Distance(transform.position, target.position);
+            if (distance <= 2f)
+            {
+                transform.LookAt(target);
             }
         }
         
