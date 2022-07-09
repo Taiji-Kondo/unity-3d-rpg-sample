@@ -12,6 +12,8 @@ namespace Player
             animator.ResetTrigger(Hurt);
             // Change moveSpeed to zero
             animator.GetComponent<PlayerManager>().moveSpeed = 0.4f;
+            // Disable the player's collider
+            animator.GetComponent<PlayerManager>().DisableWeaponCollider();
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
