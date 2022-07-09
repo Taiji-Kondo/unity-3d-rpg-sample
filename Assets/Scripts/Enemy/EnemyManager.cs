@@ -72,5 +72,10 @@ namespace Enemy
         {
             weaponCollider.enabled = true;
         }
+        
+        public void LookAtTarget()
+        {
+            transform.LookAt(target);
+        }
     }
 }
