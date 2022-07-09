@@ -10,7 +10,7 @@ namespace Player
         private float _z;
         private int _hp;
         private int _stamina;
-        private int _staminaConsumption = 40;
+        private int _staminaConsumption = 80;
         private bool _isDie;
         private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
         private static readonly int Attack = Animator.StringToHash("Attack");
@@ -72,12 +72,11 @@ namespace Player
         
         private void RecoveryStamina()
         {
-            _stamina++;
-            if (_stamina >= maxStamina)
+            if (_stamina < maxStamina)
             {
-                _stamina = maxStamina;
+                _stamina++;
+                playerHpManager.UpdateStamina(_stamina);
             }
-            playerHpManager.UpdateStamina(_stamina);
         }
 
         private void FixedUpdate()
