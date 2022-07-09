@@ -90,6 +90,7 @@ namespace Player
                 _hp = 0;
                 _isDie = true;
 
+                _rigidbody.velocity = Vector3.zero;
                 _animator.SetTrigger(Die);
                 gameOverText.SetActive(true);
             }
