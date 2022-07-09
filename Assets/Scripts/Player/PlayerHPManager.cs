@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace Player
 {
@@ -15,7 +16,7 @@ namespace Player
         
         public void UpdateHp(int hp)
         {
-            hpGage.value = hp;
+            hpGage.DOValue(hp, 0.3f);
         }
     }
 }
