@@ -8,8 +8,9 @@ namespace Player
         private Animator _animator;
         private float _x;
         private float _z;
-        public int maxHp = 100;
         private int _hp;
+        private int _stamina;
+        private int _staminaConsumption = 40;
         private bool _isDie;
         private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
         private static readonly int Attack = Animator.StringToHash("Attack");
@@ -17,6 +18,8 @@ namespace Player
         private static readonly int Die = Animator.StringToHash("Die");
 
         public Transform target;
+        public int maxHp = 100;
+        public int maxStamina = 100;
         public float moveSpeed;
         public Collider weaponCollider;
         public PlayerHpManager playerHpManager;
@@ -26,6 +29,7 @@ namespace Player
         {
             // Init
             _hp = maxHp;
+            _stamina = maxStamina;
             playerHpManager.Init(this);
             
             _rigidbody = GetComponent<Rigidbody>();
@@ -48,9 +52,32 @@ namespace Player
             // Attack by keydown
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                OnAttack();
+            }
+            
+            // Recovery stamina
+            RecoveryStamina();
+        }
+        
+        private void OnAttack()
+        {
+            if (_stamina >= _staminaConsumption)
+            {
+                _stamina -= _staminaConsumption;
+                playerHpManager.UpdateStamina(_stamina);
                 LookAtTarget();
                 _animator.SetTrigger(Attack);
             }
+        }
+        
+        private void RecoveryStamina()
+        {
+            _stamina++;
+            if (_stamina >= maxStamina)
+            {
+                _stamina = maxStamina;
+            }
+            playerHpManager.UpdateStamina(_stamina);
         }
 
         private void FixedUpdate()
