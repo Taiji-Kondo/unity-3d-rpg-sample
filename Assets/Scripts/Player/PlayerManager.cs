@@ -10,7 +10,7 @@ namespace Player
         private float _z;
         private int _hp;
         private int _stamina;
-        private int _staminaConsumption = 80;
+        private int _staminaConsumption = 40;
         private bool _isDie;
         private static readonly int MoveSpeed = Animator.StringToHash("MoveSpeed");
         private static readonly int Attack = Animator.StringToHash("Attack");
@@ -54,9 +54,6 @@ namespace Player
             {
                 OnAttack();
             }
-            
-            // Recovery stamina
-            RecoveryStamina();
         }
         
         private void OnAttack()
@@ -93,6 +90,9 @@ namespace Player
             _rigidbody.velocity = new Vector3(_x, 0, _z) * moveSpeed;
             // Move animation
             _animator.SetFloat(MoveSpeed, _rigidbody.velocity.magnitude);
+            
+            // Recovery stamina
+            RecoveryStamina();
         }
 
         private void OnTriggerEnter(Collider other)
